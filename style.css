@@ -16,7 +16,7 @@ section {
   background: black;
   color: white;
   text-align: center;
-  padding: 100px 20px;
+  padding: 5px 20px;
 }
 
 .hero span {
@@ -34,14 +34,14 @@ section {
 
 .about, .projects, .resume, .contact {
   background:black;
-  margin-top: 30px;
+  margin-top: 1px;
   border-radius: 8px;
   padding: 40px;
 }
 
 .project-card {
   background: black;
-  padding: 15px;
+  padding: 5px;
   border-radius: 8px;
   margin-top: 50px;
   box-shadow: 1px 4px 5px white;
@@ -165,4 +165,47 @@ footer {
     opacity: 1;
   }
 }
+/* Initial hidden state */
+.resume {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 1s ease-in-out;
+}
 
+/* Slide-in active state */
+.resume.slide-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+.cursor {
+  display: inline-block;
+  color: #00bcd4;
+  font-weight: bold;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typed-text {
+  color: #00bcd4;
+}
+
+.about{
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+.about.visible{
+  opacity: 1;
+}
+.contact h2 {
+  animation: blink 1s steps(1) 7;
+  color: #00bcd4;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
