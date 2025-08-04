@@ -148,5 +148,29 @@
     }, 2000); // 2000 milliseconds = 2 seconds
   });
 </script>
+<audio id="hoverSound" src="https://assets.mixkit.co/sfx/preview/mixkit-click-melodic-tone-1129.mp3"></audio>
+<script>
+  const hoverSound = document.getElementById("hoverSound");
+
+  document.querySelectorAll(".btn, .glow-border, a, button").forEach(element => {
+    element.addEventListener("mouseenter", () => {
+      hoverSound.currentTime = 0;
+      hoverSound.play();
+    });
+  });
+</script>
+<script>
+  document.querySelectorAll(".ripple").forEach(button => {
+    button.addEventListener("click", function(e) {
+      const circle = document.createElement("span");
+      circle.classList.add("ripple");
+      const rect = this.getBoundingClientRect();
+      circle.style.left = (e.clientX - rect.left) + "px";
+      circle.style.top = (e.clientY - rect.top) + "px";
+      this.appendChild(circle);
+      setTimeout(() => circle.remove(), 600);
+    });
+  });
+</script>
 </body>
 </html>

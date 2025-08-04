@@ -209,3 +209,79 @@ footer {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+@keyframes helicopterLaunch {
+  0% {
+    transform: rotate(0deg) translateY(100px) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    transform: rotate(5deg) translateY(80px) scale(0.9);
+  }
+  40% {
+    transform: rotate(-5deg) translateY(60px) scale(1);
+  }
+  60% {
+    transform: rotate(3deg) translateY(40px);
+  }
+  80% {
+    transform: rotate(-3deg) translateY(20px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0px);
+    opacity: 1;
+  }
+}
+.projects h2{
+  opacity: 0;
+  transform: translateY(100px);
+  animation: helicopterLaunch 2.5s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+.project-card {
+  opacity: 0;
+  transform: translateY(100px);
+  animation: helicopterLaunch 6s ease-out forwards;
+  animation-delay: 2s;
+}
+.social-links a i {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+  color: white;
+}
+
+.social-links a i:hover {
+  color: #00bcd4;
+  box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+}
+
+/* Existing click pulse effect */
+@keyframes iconClickPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.85); }
+  100% { transform: scale(1); }
+}
+
+.social-links a i:active {
+  animation: iconClickPulse 0.3s ease;
+}
+.glow-border {
+  position: relative;
+  padding: 20px;
+  border-radius: 12px;
+  background: #1A1A1A;
+  z-index: 1;
+  overflow: hidden;
+  color: white;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(45deg, #00BCD4, #39FF14, #FF00FF, #00BCD4);
+  background-size: 400% 400%;
+  border-radius: 12px;
+  z-index: -1;
+  animation: animatedBorder 8s linear infinite;
+}
